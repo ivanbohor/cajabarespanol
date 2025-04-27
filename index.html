@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class="title-grid mb-4">
+            <h1 class="text-center mb-0">CajaBar <i class="bi bi-receipt-cutoff"></i></h1> 
+            <button id="configBtn" class="btn btn-outline-primary config-btn">
+                <i class="bi bi-gear"></i>
+            </button>
+        </div>
+        
+        
+        <div id="configContainer" class="config-container">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="mb-0">Configuración del Menú</h5>
+                <button id="volverInicio" class="btn btn-outline-secondary btn-sm">
+                    <i class="bi bi-arrow-left"></i> Volver
+                </button>
+            </div>
+            <div id="menuConfigItems" class="menu-items-container"></div>
+            <div class="d-flex gap-2 mt-3">
+                <button id="addMenuItem" class="btn btn-primary btn-sm">
+                    <i class="bi bi-plus"></i> Agregar Item
+                </button>
+                <button id="saveMenu" class="btn btn-success btn-sm">
+                    <i class="bi bi-save"></i> Guardar Menú
+                </button>
+            </div>
+        </div>
+        
+        <div class="mb-3 position-relative">
+            <input type="text" id="buscarPlato" class="form-control" placeholder="Buscar plato..." autocomplete="off">
+            <div id="sugerencias" class="list-group sugerencias-container"></div>
+        </div>
+        
+        <div class="card mb-3">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">Pedido Actual</h5>
+                <span class="badge">0 ítems</span>
+            </div>
+            <ul id="listaPedidos" class="list-group list-group-flush"></ul>
+            <div class="card-footer">
+                
+
+                <!-- Agregar esto en el card-footer, justo antes del total -->
+<div class="extra-input mb-2">
+    <div class="input-group">
+        <span class="input-group-text">$</span>
+        <input type="number" id="extraInput" class="form-control" placeholder="Agregar extra" min="0" step="100">
+    </div>
+</div>
+
+
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <strong class="total-label">TOTAL:</strong>
+                    <strong class="total-gold">$<span id="total">0</span></strong>
+                </div>
+                <div class="transferencia-toggle">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="transferenciaToggle">
+                    </div>
+                    <span class="transferencia-text">Transferencia +5%</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="d-grid gap-2 mb-3">
+            <button id="nuevoPedido" class="btn btn-danger btn-action btn-md">Nuevo Pedido</button>
+        </div>
+    </div>
+
+    <button id="verHistorial" class="btn btn-outline-primary btn-bottom btn-md">Historial</button>
+    
+    <div id="historyContainer" class="history-container">
+        <h5 class="mb-3">Últimos 4 Pedidos</h5>
+        <div id="historyItems"></div>
+    </div>
+
+    <div id="passwordModal" class="password-modal" style="display: none;">
+        <div class="password-box">
+            <h5 class="mb-3">Acceso a Configuración</h5>
+            <input type="password" id="passwordInput" class="form-control mb-3" placeholder="Contraseña">
+            <div class="d-flex justify-content-end gap-2">
+                <button id="cancelPassword" class="btn btn-outline-secondary">Cancelar</button>
+                <button id="submitPassword" class="btn btn-primary">Aceptar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
